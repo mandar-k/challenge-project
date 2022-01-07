@@ -1,6 +1,5 @@
 package com.robotics.inc.inventory.controller;
 
-import com.robotics.inc.inventory.model.Robot;
 import com.robotics.inc.inventory.service.RobotInventoryService;
 import com.robotics.inc.inventory.web.model.RobotStateCountVO;
 import com.robotics.inc.inventory.web.model.RobotVO;
@@ -20,7 +19,7 @@ public class RobotInventoryController {
     private RobotInventoryService robotInventoryService;
 
     @GetMapping("/all")
-    public List<Robot> getAllRobots() {
+    public List<RobotVO> getAllRobots() {
         log.debug("Received request to get all robots");
         return robotInventoryService.getAllRobots();
     }
@@ -28,7 +27,7 @@ public class RobotInventoryController {
     @GetMapping(value = "/getRobotState")
     public RobotVO getRobotState(@RequestParam String robotId) {
         log.debug("Received request to add new robot to inventory");
-        return robotInventoryService.geRobotStateById(robotId);
+        return robotInventoryService.getRobotStateById(robotId);
     }
 
     @GetMapping(value = "/allRobotCount")

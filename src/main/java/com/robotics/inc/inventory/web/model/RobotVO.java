@@ -2,6 +2,7 @@ package com.robotics.inc.inventory.web.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 
@@ -17,7 +18,6 @@ public class RobotVO {
     private Long robotId;
 
     private String name;
-
 
     private Date yearBuilt;
 

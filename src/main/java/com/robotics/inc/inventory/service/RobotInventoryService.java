@@ -25,8 +25,17 @@ public class RobotInventoryService {
     @Autowired
     private RobotRepository robotRepository;
 
-    public List<Robot> getAllRobots() {
-        return robotRepository.findAll();
+    public List<RobotVO> getAllRobots() {
+        log.debug("Request received for all robots in robot inventory");
+        List<Robot> robots = robotRepository.findAll();
+        if (robots != null && !robots.isEmpty()) {
+            return robots.stream().map(robot -> {
+                RobotVO robotVo = new RobotVO();
+                BeanUtils.copyProperties(robot, robotVo);
+                return robotVo;
+            }).collect(Collectors.toList());
+        }
+        return null;
     }
 
     public boolean addNewRobot(RobotVO robotVO) {
@@ -37,7 +46,7 @@ public class RobotInventoryService {
         return true;
     }
 
-    public RobotVO geRobotStateById(String robotId) {
+    public RobotVO getRobotStateById(String robotId) {
         log.debug("Request received to get robot by id: {}", robotId);
         Optional<Robot> robot = robotRepository.findByRobotId(robotId);
         return robot.map(value -> {

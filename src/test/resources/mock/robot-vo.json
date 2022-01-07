@@ -1,0 +1,10 @@
+{
+  "robotId": 3,
+  "name": "Robo C",
+  "mass": 5.0,
+  "color": "red",
+  "robotState": "Designed",
+  "robotFunctions": [
+    "TEMPERATURE_SENSING"
+  ]
+}
