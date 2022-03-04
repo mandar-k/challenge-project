@@ -27,3 +27,4 @@ following details.
    web-page, calling the web-service REST API you provide.
    GET call to get all robots
    GET call to get robots in each of the three lifecycle states
+   To resolve GET all records execute this query in couch database CREATE PRIMARY INDEX `robotics-inc-primary-index` ON `robotics-inc` USING GSI;
